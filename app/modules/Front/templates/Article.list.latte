@@ -1,0 +1,19 @@
+{block content}
+
+{foreach $articles as $article}
+	{control article $article}
+{/foreach}
+{*
+<article n:foreach="$articles as $article">
+	<h1><a n:href="detail $article->slug">{$article->title}</a></h1>
+
+	<p>{$article->content|truncate:50}</p>
+
+	<p>Napsal: {$article->user->name} v {$article->created|date:"H:i:s"}</p>
+
+</article>
+*}
+<p>
+	<a n:href="list $page - 1" class="btn btn-default" n:tag-if="$page > 1">novější</a>
+	<a n:href="list $page + 1" class="btn btn-default" n:tag-if="$page < $lastPage">starší</a>
+</p>

@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<title>Seznam filmu | CSFD</title>
+
+<h1>Seznam filmů</h1>
+
+<ul>
+<?php foreach ($movies as $movie): ?>
+	<li title='<?= htmlspecialchars($movie['name'], ENT_QUOTES) ?>'>
+	<?= htmlspecialchars($movie['name']) ?> <i><?= $movie['year'] ?></i></li>
+<?php endforeach ?>
+</ul>
+
+<footer>copyright</footer>
+
+

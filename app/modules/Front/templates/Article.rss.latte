@@ -1,0 +1,17 @@
+{contentType application/xml}
+{var $presenter->absoluteUrls = TRUE}
+{cache expiration => '1 hour'}
+<?xml version="1.0"?>
+<rss version="2.0">
+   <channel>
+      <title>Blog</title>
+      <link>{link list}</link>
+      <pubDate>{=date('r')}</pubDate>
+      <item n:foreach="$articles as $article">
+         <title>{$article->title}</title>
+         <link>{link detail $article->slug}</link>
+         <pubDate>{$article->created|date:r}</pubDate>
+      </item>
+</channel>
+</rss>
+{/cache}

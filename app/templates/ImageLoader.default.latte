@@ -1,0 +1,8 @@
+{block content}
+
+{$dir}
+
+{dump $baseUrl}
+<ul>
+    <li n:foreach="$images as $image"><img src="{$baseUrl . $image[path]}" width="100" heigth="100"> {$image[name]}</li>
+</ul>

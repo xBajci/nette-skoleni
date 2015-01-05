@@ -1,0 +1,27 @@
+{block content}
+
+<h1>Administrace</h1>
+
+<a n:href="add" class="btn btn-default">Přidat článek</a>
+
+{snippet articles}
+<table class=table>
+<tr>
+	<th>Titulek</th>
+	<th>Autor</th>
+	<th>Vytvořeno</th>
+	<th>Akce</th>
+</tr>
+<tr n:foreach="$articles as $article">
+	<td><a n:href=":Front:Article:detail $article->slug">{$article->title}</a></td>
+	<td>{$article->user->name}</td>
+	<td>{$article->created|date:'H:i:s'}</td>
+	<td><a n:href="delete! $article->id" class="btn btn-danger" data-confirm data-ajax>smazat</a></td>
+</tr>
+</table>
+
+<p>
+	<a n:href="list $page - 1" class="btn btn-default" n:tag-if="$page > 1">novější</a>
+	<a n:href="list $page + 1" class="btn btn-default" n:tag-if="$page < $lastPage">starší</a>
+</p>
+{/snippet}

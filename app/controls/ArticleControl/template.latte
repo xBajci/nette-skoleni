@@ -1,0 +1,10 @@
+
+
+<article>
+	<h1><a href="{$lg($article)}">{$article->title}</a></h1>
+
+	<p>{$article->content|truncate:50}</p>
+
+	<p>Napsal: {$article->user->name} v {$article->created|date:"H:i:s"}</p>
+
+</article>
